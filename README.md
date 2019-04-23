@@ -1,9 +1,9 @@
 # ertktest
 
 <h2>Требования</h2>
-<h3>
+<pre>
 	Apache || Ngnix, MySQL >= 5.6 , PHP >= 7 , GIT , Composer
-</h3>
+</pre>
 
 <h2>Установка</h2>
 
