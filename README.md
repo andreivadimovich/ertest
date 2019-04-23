@@ -3,16 +3,16 @@
 <h2>Установка</h2>
 
 <b>0)</b> склонируйте проект в нужную директорию
-	git clone https://github.com/andreivadimovich/ertktest.git
+	<pre>git clone https://github.com/andreivadimovich/ertktest.git</pre>
 
 <b>1)</b> В директории проекта выполните:
-	php -d memory_limit=-1 composer.phar update
+	<pre>php -d memory_limit=-1 composer update</pre>
 
 <b>2)</b> Настройте соединение с базой данных (в файле .env):
-	DATABASE_URL=mysql://user:pwd@127.0.0.1:PORT/dbname
+	<pre>DATABASE_URL=mysql://user:pwd@127.0.0.1:PORT/dbname</pre>
 
 <b>3)</b> Запустите миграцию
-	php bin/console doctrine:migrations:migrate
+	<pre>php bin/console doctrine:migrations:migrate</pre>
 
 <b>4)</b> Настройте веб сервер на директорию ./public 
 
