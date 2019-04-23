@@ -25,11 +25,14 @@
 
 <hr />
 
-Схема БД изображение
-	<a href="https://www.dropbox.com/s/kodhy0mi2uk2thv/db.png?dl=0">https://www.dropbox.com/s/kodhy0mi2uk2thv/db.png?dl=0</a>
+<h2>Дополнительно</h2>
+Схема БД. Изображение
+<a href="https://www.dropbox.com/s/kodhy0mi2uk2thv/db.png?dl=0">https://www.dropbox.com/s/kodhy0mi2uk2thv/db.png?dl=0</a>
+<br />
+DDL dump <a href="https://www.dropbox.com/s/qkh1yhenjj61el0/ertk.sql?dl=0">https://www.dropbox.com/s/qkh1yhenjj61el0/ertk.sql?dl=0</a>
+<br />
+DML dump <a href="https://www.dropbox.com/s/z7qvrw2d43duxn2/sql_data.sql?dl=0">https://www.dropbox.com/s/z7qvrw2d43duxn2/sql_data.sql?dl=0</a>
+	
 
-- DDL dump
-	<a href="https://www.dropbox.com/s/qkh1yhenjj61el0/ertk.sql?dl=0">https://www.dropbox.com/s/qkh1yhenjj61el0/ertk.sql?dl=0</a>
-
-- DML dump
-	<a href="https://www.dropbox.com/s/z7qvrw2d43duxn2/sql_data.sql?dl=0">https://www.dropbox.com/s/z7qvrw2d43duxn2/sql_data.sql?dl=0</a>
+<h3>Демо системы</h3>
+<img src="https://raw.githubusercontent.com/andreivadimovich/ertktest/master/demo.gif" width="860" height="606" />
