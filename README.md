@@ -18,6 +18,7 @@
 
 <b>5)</b> Перейдите на страницу проекта браузером, следуйте инструкциям
 
+<hr />
 
 Схема БД изображение
 	<a href="https://www.dropbox.com/s/kodhy0mi2uk2thv/db.png?dl=0">https://www.dropbox.com/s/kodhy0mi2uk2thv/db.png?dl=0</a>
