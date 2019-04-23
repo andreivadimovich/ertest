@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}History index{% endblock %}
+
+{% block body %}
+
+    {% if exist_auto %}
+        <h2 class="story-header">
+            <b class="car-number">{{ exist_auto.number }}</b>
+            {{ exist_auto.name }}
+            {{ exist_auto.mark }}
+            (<i>now is {{ model.getTextState(exist_auto.state) }}</i>)
+            <input type="hidden" id="auto_id" value="{{ exist_auto.id }}" />
+        </h2>
+        <div style="padding: 10px; margin-top: -25px; background: #d1e8e887;">
+            <h3>Average rental time</h3>
+            {% for av in average %}
+                {% if av.time is empty %}
+                    little data to analyze...
+                {% else %}
+                    <b> {{ av.addr }}</b> = <u>{{ av.time }}</u> <br />
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div id="between_date">
+            <h3>Filter by dates</h3>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <input type="submit" onclick="return betweenDate();" value="show story between dates" style="font-size: 18px;"/>
+            <input type="submit" onclick="return ShowHistory({{ exist_auto.id }});" value="Reset"/>
+            {{ form_end(form) }}
+        </div>
+
+        <h3 id="history_block">History <a href="{{ path('history_new') }}">create</a></h3>
+    {% else %}
+        <h1>History index <a href="{{ path('history_new') }}">create</a></h1>
+        <a href="/">Main</a> |
+        <a href="/user">User</a> |
+        <a href="/department">Department</a> |
+        <a href="/auto">Auto</a>
+    {% endif %}
+    <table class="table auto" style="margin-top:0px;" cellpadding="10" cellspacing="15">
+        <thead>
+            <tr>
+                <th>id</th>
+                {% if exist_auto == false %}
+                    <th>Car</th>
+                    <th align="center">Car number</th>
+                {% endif %}
+                <th align="center">Took</th>
+                <th align="center">Gave</th>
+                <th>User</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for history in histories %}
+            <tr class="bottom-stripped">
+                <td>{{ history.id }}</td>
+                {% if exist_auto == false %}
+                    <td>{{ history.auto.name }} {{ history.auto.mark }}</td>
+                    <td align="center">{{ history.auto.number }} </td>
+                {% endif %}
+                <td align="center">
+                    {{ history.took ? history.took|date('Y-m-d H:m') : '' }}<br />
+                    <i>{{ history.departmentFrom }}</i>
+                </td>
+
+                <td align="center">
+                    {{ history.gave ? history.gave|date('Y-m-d H:m') : '' }}<br />
+                    <i>{{ history.departmentTo }}</i>
+                </td>
+                <td align="center">
+                    {{ history.user.name }} {{ history.user.surname }} {{ history.user.patronymic }}
+                </td>
+                <td>
+                    <a href="{{ path('history_edit', {'id': history.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

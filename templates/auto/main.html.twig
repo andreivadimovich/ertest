@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}The car rent service{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <div id="invisible">
+        <div id="close" onclick="ClosePanel();return false;">
+            <span id="txt_close" title="Or click ESC to the close history window">x</span>
+        </div>
+
+        <span class="content">
+            <img src="img/load.gif" />
+        </span>
+    </div>
+    <div style="clear: both;"></div>
+
+    {% if list is empty %}
+        The auto list in empty now. <a href="/auto/new">1. Create new auto</a> <br />
+        Then create a new <a href="/user/new">2. user</a> and <a href="/department/new">3. department</a> <br />
+        <i>add data to 4. history</i><br />
+        Good luck! 
+    {% else %}
+        <table width="70%" class="auto">
+            <tr>
+                <td colspan="6" class="main_menu">
+                    <a href="/auto">Auto list</a> | <a href="/history">Common history</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <th>Mark</th>
+                <th>Number</th>
+                <th>State</th>
+                <th></th><th></th>
+            </tr>
+
+        {% for item in list %}
+            <tr align="center" class="bottom-stripped el{{ item.id }}">
+                <td>{{ item.name }}</td>
+                <td>{{ item.mark }}</td>
+                <td>{{ item.number }}</td>
+                <td>
+                    {{ model.getTextState(item.state) }}
+                </td>
+                <td>
+                    <a href="#" onclick="ShowHistory({{ item.id }});return false;">more</a>
+                </td>
+                <td>
+                    {% if item.state == 1 %}
+                        <a href="/history/new?id={{ item.id }}">rent</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% endif %}
+</div>
+{% endblock %}

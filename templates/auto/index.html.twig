@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Auto index{% endblock %}
+
+{% block body %}
+    <h1>Auto index</h1>
+
+    <a href="/">Main</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Mark</th>
+                <th>Number</th>
+                <th>State</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for auto in autos %}
+            <tr>
+                <td>{{ auto.id }}</td>
+                <td>{{ auto.name }}</td>
+                <td>{{ auto.mark }}</td>
+                <td>{{ auto.number }}</td>
+                <td>{{ auto.getTextState(auto.state) }} </td>
+                <td>
+                    <a href="{{ path('auto_show', {'id': auto.id}) }}">show</a>
+                    <a href="{{ path('auto_edit', {'id': auto.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('auto_new') }}">Create new</a>
+{% endblock %}

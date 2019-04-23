@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Auto{% endblock %}
+
+{% block body %}
+    <h1>Auto</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ auto.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ auto.name }}</td>
+            </tr>
+            <tr>
+                <th>Mark</th>
+                <td>{{ auto.mark }}</td>
+            </tr>
+            <tr>
+                <th>Number</th>
+                <td>{{ auto.number }}</td>
+            </tr>
+            <tr>
+                <th>State</th>
+                <td>{{ auto.state }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('auto_index') }}">back to list</a>
+
+    <a href="{{ path('auto_edit', {'id': auto.id}) }}">edit</a>
+
+    {{ include('auto/_delete_form.html.twig') }}
+{% endblock %}

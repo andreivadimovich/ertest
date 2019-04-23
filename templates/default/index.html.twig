@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}The car rental service {% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        <hr />
+
+        {% for item in arr %}
+            <li>{{ item }}</li>
+        {% endfor %}
+
+    </body>
+</html>
