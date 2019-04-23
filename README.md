@@ -2,7 +2,7 @@
 
 <h2>Требования</h2>
 <pre>
-	Apache || Ngnix, MySQL >= 5.6 , PHP >= 7 , GIT , Composer
+Веб сервер, MySQL >= 5.6 , PHP >= 7 , GIT , Composer
 </pre>
 
 <h2>Установка</h2>
